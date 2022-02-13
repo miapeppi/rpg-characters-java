@@ -1,4 +1,4 @@
 package main.java.characters;
 
-public class Warrior {
-}
+//public class Warrior extends Character {
+//}

@@ -1,4 +1,4 @@
 package main.java.characters;
 
-public class Ranger {
-}
+//public class Ranger extends Character{
+//}

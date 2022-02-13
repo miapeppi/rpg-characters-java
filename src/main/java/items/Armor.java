@@ -1,4 +1,4 @@
 package main.java.items;
 
-public class Armor {
+public class Armor extends Item {
 }

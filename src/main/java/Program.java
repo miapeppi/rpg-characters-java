@@ -9,8 +9,8 @@ public class Program {
         System.out.println("Hey, you. You're finally awake.");
         System.out.println("What's your name? ");
         String name = reader.nextLine();
-        //System.out.println("Tell me " + name + ", are you a Mage, a Ranger, a Rogue or a Warrior? ");
-        //String characterType = reader.nextLine();
+        System.out.println("Tell me " + name + ", are you a Mage, a Ranger, a Rogue or a Warrior? ");
+        String characterType = reader.nextLine();
 
         Mage mage = new Mage(name);
 
@@ -28,7 +28,14 @@ public class Program {
         //    System.out.println("warrior it is.");
         //}
 
-        //System.out.println("A " + characterType + " you say, eh? Well let's have a look at your stats: ");
+        System.out.println("A " + characterType + " you say, eh? Well let's have a look at your stats: ");
+        mage.printCharacterStats();
+
+        System.out.println("");
+        mage.levelUp();
+        mage.levelUp();
+
+        System.out.println("Leveled up!");
         mage.printCharacterStats();
     }
 }

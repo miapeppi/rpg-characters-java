@@ -1,20 +1,36 @@
 package main.java.characters;
 
+import java.util.HashMap;
 import main.java.attributes.PrimaryAttribute;
+import main.java.items.Item;
+import main.java.items.Item.Slot;
 
 public abstract class Character {
     private String characterName;
     private int characterLevel = 1; // Every character starts at level 1
     private PrimaryAttribute basePrimaryAttribute;
     private PrimaryAttribute totalPrimaryAttribute;
-    // Equipments
+    private HashMap<Slot, Item> equipments;
 
     // Overloaded constructor for creating a new character with a name, starting attributes and creating a dictionary for equipments
     public Character(String name, PrimaryAttribute startAttributes) {
         setCharacterName(name);
         setBasePrimaryAttribute(startAttributes);
         setTotalPrimaryAttribute(startAttributes);
+        initializeEquipments();
     }
+
+    // Creating a dictionary with all four slots where items can be equipped
+    public void initializeEquipments() {
+        HashMap<Slot, Item> equippingSlots = new HashMap<>();
+        equippingSlots.put(Slot.Head, null);
+        equippingSlots.put(Slot.Body, null);
+        equippingSlots.put(Slot.Legs, null);
+        equippingSlots.put(Slot.Weapon, null);
+        setEquipments(equippingSlots);
+    }
+
+    public abstract void levelUp();
 
     // For printing characters statistic sheet
     public void printCharacterStats() {
@@ -59,6 +75,14 @@ public abstract class Character {
 
     public void setTotalPrimaryAttribute(PrimaryAttribute totalPrimaryAttribute) {
         this.totalPrimaryAttribute = totalPrimaryAttribute;
+    }
+
+    public HashMap<Slot, Item> getEquipments() {
+        return equipments;
+    }
+
+    public void setEquipments(HashMap<Slot, Item> equipments) {
+        this.equipments = equipments;
     }
     // endregion
 }

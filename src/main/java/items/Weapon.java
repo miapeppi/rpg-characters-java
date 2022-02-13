@@ -6,7 +6,7 @@ public class Weapon extends Item {
     private WeaponType weaponType;
     private WeaponAttribute weaponAttribute;
 
-    // Enum for every weapon type that can be equipped
+    /** Enum for every weapon type that can be equipped */
     public enum WeaponType {
         Axe,
         Bow,
@@ -17,7 +17,7 @@ public class Weapon extends Item {
         Wand
     }
 
-    // Constructor that creates new weapon attributes and put the equipping slot as a weapon
+    /** Constructor that creates new weapon attributes and put the equipping slot as a weapon */
     public Weapon() {
         //weaponAttribute = new WeaponAttribute();
         setEquippingSlot(Slot.Weapon);

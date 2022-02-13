@@ -31,11 +31,9 @@ public class Program {
         System.out.println("A " + characterType + " you say, eh? Well let's have a look at your stats: ");
         mage.printCharacterStats();
 
-        System.out.println("");
         mage.levelUp();
         mage.levelUp();
 
-        System.out.println("Leveled up!");
         mage.printCharacterStats();
     }
 }

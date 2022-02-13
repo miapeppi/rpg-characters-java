@@ -5,24 +5,19 @@ public class PrimaryAttribute {
     private int dexterity = 0;
     private int intelligence = 0;
 
-    // Default constructor
-    public PrimaryAttribute() {
-    }
-
-    // Overloaded constructor
+    /** Overloaded constructor */
     public PrimaryAttribute( int strength, int dexterity, int intelligence) {
         setStrength(strength);
         setDexterity(dexterity);
         setIntelligence(intelligence);
     }
 
-    // Method for adding up primary attributes
+    /** Method for adding up primary attributes */
     public PrimaryAttribute attributeLevelUp(PrimaryAttribute levelingUpAttributes) {
         int newStrength = getStrength() + levelingUpAttributes.getStrength();
         int newDexterity = getDexterity() + levelingUpAttributes.getDexterity();
         int newIntelligence = getIntelligence() + levelingUpAttributes.getIntelligence();
-        PrimaryAttribute newAttributes = new PrimaryAttribute(newStrength, newDexterity, newIntelligence);
-        return newAttributes;
+        return (new PrimaryAttribute(newStrength, newDexterity, newIntelligence));
     }
 
     // region Getters and setters

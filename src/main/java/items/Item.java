@@ -5,7 +5,7 @@ public abstract class Item {
     private int itemLevel;
     private Slot equippingSlot;
 
-    // Enum for every slot where character can have items
+    /** Enum for every slot where character can have items */
     public enum Slot {
         Head,
         Body,

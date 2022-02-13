@@ -19,6 +19,16 @@ public class Mage extends Character {
         System.out.println("You leveled up!");
     }
 
+    @Override
+    public void levelUp(int levels) {
+        setCharacterLevel(getCharacterLevel() + levels);
+        setBasePrimaryAttribute(getBasePrimaryAttribute().attributeLevelUp(getLevelingUpAttribute(), levels));
+        setTotalPrimaryAttribute(getTotalPrimaryAttribute().attributeLevelUp(getLevelingUpAttribute(), levels));
+        // DPS
+        System.out.println("You leveled up " + levels + " levels!");
+    }
+
+
     // region Getters and setters
     public PrimaryAttribute getLevelingUpAttribute() {
         return levelingUpAttribute;

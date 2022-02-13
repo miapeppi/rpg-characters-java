@@ -20,6 +20,14 @@ public class PrimaryAttribute {
         return (new PrimaryAttribute(newStrength, newDexterity, newIntelligence));
     }
 
+    /** Method for adding up primary attributes for precise amount of levels */
+    public PrimaryAttribute attributeLevelUp(PrimaryAttribute levelingUpAttributes, int levels) {
+        int newStrength = getStrength() + levelingUpAttributes.getStrength() * levels;
+        int newDexterity = getDexterity() + levelingUpAttributes.getDexterity() * levels;
+        int newIntelligence = getIntelligence() + levelingUpAttributes.getIntelligence() * levels;
+        return (new PrimaryAttribute(newStrength, newDexterity, newIntelligence));
+    }
+
     // region Getters and setters
     public int getStrength() {
         return strength;

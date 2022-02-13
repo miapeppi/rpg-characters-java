@@ -30,8 +30,11 @@ public abstract class Character {
         setEquipments(equippingSlots);
     }
 
-    /** */
+    /** Method for leveling up the character by one level and increasing the primary attributes */
     public abstract void levelUp();
+
+    /** Method for leveling up the character precise amount of levels and increasing the primary attributes */
+    public abstract void levelUp(int levels);
 
     /** For printing characters statistic sheet */
     public void printCharacterStats() {

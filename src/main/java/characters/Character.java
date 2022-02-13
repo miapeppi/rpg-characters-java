@@ -2,8 +2,10 @@ package main.java.characters;
 
 import java.util.HashMap;
 import main.java.attributes.PrimaryAttribute;
+import main.java.items.Armor;
 import main.java.items.Item;
 import main.java.items.Item.Slot;
+import main.java.items.Weapon;
 
 public abstract class Character {
     private String characterName;
@@ -12,12 +14,12 @@ public abstract class Character {
     private PrimaryAttribute totalPrimaryAttribute;
     private HashMap<Slot, Item> equipments;
 
-    /** Overloaded constructor for creating a new character with a name, starting attributes and creating a dictionary for equipments */
+    /** Overloaded constructor for creating a new character with a name, starting attributes and dictionary for equipments */
     public Character(String name, PrimaryAttribute startAttributes) {
         setCharacterName(name);
         setBasePrimaryAttribute(startAttributes);
         setTotalPrimaryAttribute(startAttributes);
-        initializeEquipments();
+        initializeEquipments(); // Creating a dictionary for equipments
     }
 
     /** Creating a dictionary with all four slots where items can be equipped */
@@ -35,6 +37,12 @@ public abstract class Character {
 
     /** Method for leveling up the character precise amount of levels and increasing the primary attributes */
     public abstract void levelUp(int levels);
+
+    /** Method for equipping one piece of armor that checks if the armor's level and type are ok to equip */
+    public abstract String equipItem(Armor armor);
+
+    /** Method for equipping a weapon that checks if the weapon's level and type are ok to equip */
+    public  abstract  String equipItem(Weapon weapon);
 
     /** For printing characters statistic sheet */
     public void printCharacterStats() {

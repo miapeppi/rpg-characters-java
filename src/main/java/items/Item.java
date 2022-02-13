@@ -13,6 +13,15 @@ public abstract class Item {
         Weapon
     }
 
+    /** Method that checks if the armor or weapon is not too high level */
+    public boolean checkItemLevel(int level) {
+        if(getItemLevel() > level) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     // region Getters and setters
     public String getItemName() {
         return itemName;

@@ -13,4 +13,22 @@ public class Armor extends Item {
         Mail,
         Plate
     }
+
+    // region Getters and setters
+    public ArmorType getArmorType() {
+        return armorType;
+    }
+
+    public void setArmorType(ArmorType armorType) {
+        this.armorType = armorType;
+    }
+
+    public PrimaryAttribute getArmorAttribute() {
+        return armorAttribute;
+    }
+
+    public void setArmorAttribute(PrimaryAttribute armorAttribute) {
+        this.armorAttribute = armorAttribute;
+    }
+    // endregion
 }

@@ -1,6 +1,7 @@
 package main.java.items;
 
 import main.java.attributes.WeaponAttribute;
+import main.java.characters.Mage;
 
 public class Weapon extends Item {
     private WeaponType weaponType;

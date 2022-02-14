@@ -14,6 +14,19 @@ public class Armor extends Item {
         Plate
     }
 
+    /** Default constructor with no parameters */
+    public Armor() {
+        super();
+    }
+
+    /** Overloaded constructor that creates new armor with name, level, armor type and equipping slot */
+    public Armor(String itemName, int itemLevel, ArmorType armorType, Slot slot) {
+        super(itemName, itemLevel);
+        setArmorType(armorType);
+        setEquippingSlot(slot);
+    }
+
+
     // region Getters and setters
     public ArmorType getArmorType() {
         return armorType;

@@ -13,6 +13,15 @@ public abstract class Item {
         Weapon
     }
 
+    /** Default constructor with no parameters */
+    public Item() { }
+
+    /** Overloaded constructor with item name and level */
+    public Item(String itemName, int itemLevel) {
+        setItemName(itemName);
+        setItemLevel(itemLevel);
+    }
+
     /** Method that checks if the armor or weapon is not too high level */
     public boolean checkItemLevel(int level) {
         if(getItemLevel() > level) {

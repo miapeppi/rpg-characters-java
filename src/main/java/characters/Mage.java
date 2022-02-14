@@ -2,7 +2,11 @@ package main.java.characters;
 
 import main.java.attributes.PrimaryAttribute;
 import main.java.items.Armor;
+import main.java.items.Armor.ArmorType;
+import main.java.items.Item;
 import main.java.items.Weapon;
+import main.java.items.itemexceptions.InvalidArmorException;
+import main.java.items.itemexceptions.InvalidWeaponException;
 
 public class Mage extends Character {
     private PrimaryAttribute levelingUpAttribute;
@@ -39,16 +43,30 @@ public class Mage extends Character {
     }
 
     @Override
-    public String equipItem(Armor armor) {
-        if(armor.checkItemLevel(getCharacterLevel())) {
-            return null;
+    public void equipItem(Armor armor) throws InvalidArmorException {
+        if(armor.checkItemLevel(getCharacterLevel())) { // Checking that the armor is not too high level
+            if(armor.getArmorType().equals(ArmorType.Cloth)) { // Checking that the armor is correct type
+                if(!armor.getEquippingSlot().equals(Item.Slot.Weapon)) { // Checking that the armor is not equipped in weapon slot
+                    //
+                    System.out.println(armor.getItemName() + " is now equipped at " + armor.getEquippingSlot());
+                } else {
+                    throw new InvalidArmorException("You can't equip armor to weapon slot");
+                }
+            } else {
+                throw new InvalidArmorException("Shame on you, you can't wear that! (wrong armor type)");
+            }
+        } else {
+            throw new InvalidArmorException("You are not yet worthy of this armor (too high of a level requirement)");
         }
-        return null;
     }
 
     @Override
-    public String equipItem(Weapon weapon) {
-        return null;
+    public void equipItem(Weapon weapon) throws InvalidWeaponException {
+        if(weapon.checkItemLevel(getCharacterLevel())) {
+
+        } else {
+            throw new InvalidWeaponException("You are not yet worthy of this weapon (Too high of a level requirement)");
+        }
     }
 
     // region Getters and setters

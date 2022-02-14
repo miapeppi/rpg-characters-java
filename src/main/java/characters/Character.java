@@ -6,6 +6,8 @@ import main.java.items.Armor;
 import main.java.items.Item;
 import main.java.items.Item.Slot;
 import main.java.items.Weapon;
+import main.java.items.itemexceptions.InvalidArmorException;
+import main.java.items.itemexceptions.InvalidWeaponException;
 
 public abstract class Character {
     private String characterName;
@@ -39,10 +41,10 @@ public abstract class Character {
     public abstract void levelUp(int levels);
 
     /** Method for equipping one piece of armor that checks if the armor's level and type are ok to equip */
-    public abstract String equipItem(Armor armor);
+    public abstract void equipItem(Armor armor) throws InvalidArmorException;
 
     /** Method for equipping a weapon that checks if the weapon's level and type are ok to equip */
-    public  abstract  String equipItem(Weapon weapon);
+    public  abstract void equipItem(Weapon weapon) throws InvalidWeaponException;
 
     /** For printing characters statistic sheet */
     public void printCharacterStats() {

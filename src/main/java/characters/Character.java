@@ -16,7 +16,11 @@ public abstract class Character {
     private PrimaryAttribute totalPrimaryAttribute;
     private HashMap<Slot, Item> equipments;
 
-    /** Overloaded constructor for creating a new character with a name, starting attributes and dictionary for equipments */
+    /**
+     * Constructor for creating a new character with a name, starting attributes and dictionary for equipments
+     * @param name a name for character
+     * @param startAttributes starting points for primary attributes
+     */
     public Character(String name, PrimaryAttribute startAttributes) {
         setCharacterName(name);
         setBasePrimaryAttribute(startAttributes);
@@ -24,7 +28,9 @@ public abstract class Character {
         initializeEquipments(); // Creating a dictionary for equipments
     }
 
-    /** Creating a dictionary with all four slots where items can be equipped */
+    /**
+     * Creating a dictionary with all four slots where items can be equipped
+     */
     public void initializeEquipments() {
         HashMap<Slot, Item> equippingSlots = new HashMap<>();
         equippingSlots.put(Slot.Head, null);
@@ -34,19 +40,34 @@ public abstract class Character {
         setEquipments(equippingSlots);
     }
 
-    /** Method for leveling up the character by one level and increasing the primary attributes */
+    /**
+     * Method for leveling up the character by one level and increasing the primary attributes
+     */
     public abstract void levelUp();
 
-    /** Method for leveling up the character precise amount of levels and increasing the primary attributes */
+    /**
+     * Method for leveling up the character precise amount of levels and increasing the primary attributes
+     * @param levels an amount of levels character to level up
+     */
     public abstract void levelUp(int levels);
 
-    /** Method for equipping one piece of armor that checks if the armor's level and type are ok to equip */
+    /**
+     * Method for equipping one piece of armor. Checks if armor is correct type and level for the character before equipping.
+     * @param armor the armor to equip
+     * @throws InvalidArmorException If character tries to equip armour too high level or wrong type
+     */
     public abstract void equipItem(Armor armor) throws InvalidArmorException;
 
-    /** Method for equipping a weapon that checks if the weapon's level and type are ok to equip */
+    /**
+     * Method for equipping one piece of weapon. Checks if weapon is correct type and level for the character before equipping.
+     * @param weapon the weapon to equip
+     * @throws InvalidWeaponException If character tries to equip weapon too high level or wrong type
+     */
     public  abstract void equipItem(Weapon weapon) throws InvalidWeaponException;
 
-    /** For printing characters statistic sheet */
+    /**
+     * For printing characters statistic sheet
+     */
     public void printCharacterStats() {
         StringBuilder stats = new StringBuilder();
         stats.append(this.getClass().getSimpleName() + ": " +  getCharacterName() +  " (Level " + getCharacterLevel() + ")\n" );

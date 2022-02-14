@@ -1,5 +1,8 @@
 package main.java.items;
 
+import main.java.characters.*;
+import main.java.characters.Character;
+
 public class Weapon extends Item {
     private WeaponType weaponType;
     private int weaponDamage = 1;
@@ -37,6 +40,41 @@ public class Weapon extends Item {
         setWeaponDamage(damage);
         setWeaponAttackSpeed(attackSpeed);
         setWeaponDps(damage * attackSpeed);
+    }
+
+    @Override
+    public boolean checkItem(Character character) {
+        if(getItemLevel() > character.getCharacterLevel()) { // Checks if the item level is ok
+            return false;
+        } else {
+            if(!getEquippingSlot().equals(Slot.Weapon)) return false; // Check that weapon is equipped in weapon slot
+            if(character instanceof Mage) {
+                if(getWeaponType().equals(WeaponType.Staff) || getWeaponType().equals(WeaponType.Wand)) { // If the character type is mage and weapon type is staff or wand, returns true
+                    return true;
+                } else {
+                    return false;
+                }
+            } else if(character instanceof Ranger) {
+                if(getWeaponType().equals(WeaponType.Bow)) { // If the character type is ranger and weapon type is bow, returns true
+                    return true;
+                } else {
+                    return false;
+                }
+            } else if(character instanceof Rogue) {
+                if(getWeaponType().equals(WeaponType.Dagger) || getWeaponType().equals(WeaponType.Sword)) { // If the character type is rogue and weapon type is dagger or sword, returns true
+                    return true;
+                } else {
+                    return false;
+                }
+            } else if(character instanceof Warrior) {
+                if(getWeaponType().equals(WeaponType.Axe) || getWeaponType().equals(WeaponType.Hammer) || getWeaponType().equals(WeaponType.Sword)) { // If the character type is warrior and weapon type is axe, hammer or sword, returns true
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return false;
     }
 
     // region Getters and setters

@@ -1,5 +1,7 @@
 package main.java.items;
 
+import main.java.characters.Character;
+
 public abstract class Item {
     private String itemName;
     private int itemLevel;
@@ -23,13 +25,7 @@ public abstract class Item {
     }
 
     /** Method that checks if the armor or weapon is not too high level */
-    public boolean checkItemLevel(int level) {
-        if(getItemLevel() > level) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+    public abstract boolean checkItem(final Character character);
 
     // region Getters and setters
     public String getItemName() {

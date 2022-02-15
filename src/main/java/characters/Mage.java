@@ -2,6 +2,7 @@ package main.java.characters;
 
 import main.java.attributes.PrimaryAttribute;
 import main.java.items.Armor;
+import main.java.items.Item;
 import main.java.items.Weapon;
 import main.java.items.itemexceptions.InvalidArmorException;
 import main.java.items.itemexceptions.InvalidWeaponException;
@@ -60,13 +61,15 @@ public class Mage extends Character {
             setDamageAttribute(getTotalPrimaryAttribute().getIntelligence());
             setCharacterDps();
             System.out.println(armor.getItemName() + " is now equipped at " + armor.getEquippingSlot());
+            printCharacterStats();
         } else throw new InvalidArmorException("You are not worthy of this armor (too high of a level requirement or wrong armor type)");
     }
 
     @Override
     public void equipItem(Weapon weapon) throws InvalidWeaponException {
         if(weapon.checkItem(this)) {
-            // setEquipments(weapon.getEquippingSlot(), weapon);
+            getEquipments().put(Item.Slot.Weapon, weapon);
+            setCharacterDps();
             System.out.println(weapon.getItemName() + " is now equipped at " + weapon.getEquippingSlot());
             printCharacterStats();
         } else throw new InvalidWeaponException("You are not worthy of this weapon (too high of a level requirement or wrong weapon type)");

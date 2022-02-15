@@ -9,7 +9,9 @@ public class Weapon extends Item {
     private double weaponAttackSpeed = 1;
     private double weaponDps = (weaponDamage * weaponAttackSpeed);
 
-    /** Enum for every weapon type that can be equipped */
+    /**
+     * Enum for every weapon type that can be equipped
+     */
     public enum WeaponType {
         Axe,
         Bow,
@@ -20,19 +22,33 @@ public class Weapon extends Item {
         Wand
     }
 
-    /** Default constructor with no parameters */
+    /**
+     * Default constructor
+     */
     public Weapon() {
         super();
     }
 
-    /** Overloaded constructor that creates new weapon with name, level and weapon type and put the equipping slot as a weapon */
+    /**
+     * Overloaded constructor that creates new weapon with name, level and weapon type and put the equipping slot as a weapon
+     * @param itemName a name for the weapon
+     * @param itemLevel a level for the weapon
+     * @param weaponType what kind of weapon will be created
+     */
     public Weapon(String itemName, int itemLevel, WeaponType weaponType) {
         super(itemName, itemLevel);
         setWeaponType(weaponType);
         setEquippingSlot(Slot.Weapon);
     }
 
-    /** Overloaded constructor that creates new weapon with name, level, weapon type and attributes and put the equipping slot as a weapon */
+    /**
+     * Overloaded constructor that creates new weapon with name, level, weapon type and attributes and put the equipping slot as a weapon
+     * @param itemName a name for the weapon
+     * @param itemLevel a level for the weapon
+     * @param weaponType what kind of weapon will be created
+     * @param damage amount of damage weapon can deal
+     * @param attackSpeed the attack speed of the weapon
+     */
     public Weapon(String itemName, int itemLevel, WeaponType weaponType, int damage, double attackSpeed) {
         super(itemName, itemLevel);
         setWeaponType(weaponType);

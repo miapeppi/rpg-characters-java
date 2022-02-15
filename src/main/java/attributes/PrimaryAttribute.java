@@ -5,14 +5,23 @@ public class PrimaryAttribute {
     private int dexterity = 0;
     private int intelligence = 0;
 
-    /** Overloaded constructor */
+    /**
+     * Overloaded constructor
+     * @param strength the amount of strength
+     * @param dexterity the amount of dexterity
+     * @param intelligence the amount of intelligence
+     */
     public PrimaryAttribute( int strength, int dexterity, int intelligence) {
         setStrength(strength);
         setDexterity(dexterity);
         setIntelligence(intelligence);
     }
 
-    /** Method for adding up primary attributes */
+    /**
+     * Method for adding up primary attributes
+     * @param levelingUpAttributes the amount to increase the attributes
+     * @return increased attributes
+     */
     public PrimaryAttribute addAttribute(PrimaryAttribute levelingUpAttributes) {
         int newStrength = getStrength() + levelingUpAttributes.getStrength();
         int newDexterity = getDexterity() + levelingUpAttributes.getDexterity();
@@ -20,7 +29,12 @@ public class PrimaryAttribute {
         return (new PrimaryAttribute(newStrength, newDexterity, newIntelligence));
     }
 
-    /** Method for adding up primary attributes for precise amount of levels */
+    /**
+     * Method for adding up primary attributes for precise amount of levels
+     * @param levelingUpAttributes the amount to increase the attributes
+     * @param levels the amount of levels to increase the attributes
+     * @return increased attributes
+     */
     public PrimaryAttribute addAttribute(PrimaryAttribute levelingUpAttributes, int levels) {
         int newStrength = getStrength() + levelingUpAttributes.getStrength() * levels;
         int newDexterity = getDexterity() + levelingUpAttributes.getDexterity() * levels;
@@ -28,10 +42,15 @@ public class PrimaryAttribute {
         return (new PrimaryAttribute(newStrength, newDexterity, newIntelligence));
     }
 
-    public PrimaryAttribute subtractAttribute(PrimaryAttribute subtracAttributes) {
-        int newStrength = getStrength() - subtracAttributes.getStrength();
-        int newDexterity = getDexterity() - subtracAttributes.getDexterity();
-        int newIntelligence = getIntelligence() - subtracAttributes.getIntelligence();
+    /**
+     * Method for subtracting the primary attributes
+     * @param subtractAttributes tha amount to subtract the attributes
+     * @return subtracted amount of attributes
+     */
+    public PrimaryAttribute subtractAttribute(PrimaryAttribute subtractAttributes) {
+        int newStrength = getStrength() - subtractAttributes.getStrength();
+        int newDexterity = getDexterity() - subtractAttributes.getDexterity();
+        int newIntelligence = getIntelligence() - subtractAttributes.getIntelligence();
         return (new PrimaryAttribute(newStrength, newDexterity, newIntelligence));
     }
 

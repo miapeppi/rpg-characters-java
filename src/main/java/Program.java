@@ -39,13 +39,14 @@ public class Program {
 
         mage.levelUp();
         mage.levelUp(20);
-        Weapon superStaff = new Weapon("Super staff", 23, Weapon.WeaponType.Staff, 3, 4.5);
+        Weapon superStaff = new Weapon("Super staff", 7, Weapon.WeaponType.Staff, 3, 4.5);
         Armor superCloth = new Armor("Super cloth", 2, Armor.ArmorType.Cloth, Item.Slot.Body);
         Armor megaCloth = new Armor("Mega cloth", 17, Armor.ArmorType.Cloth, Item.Slot.Body);
         megaCloth.setArmorAttribute(new PrimaryAttribute(4, 7, 2));
         mage.equipItem(superCloth);
         mage.printCharacterStats();
         mage.equipItem(megaCloth);
+        mage.equipItem(superStaff);
 
         mage.printCharacterStats();
     }

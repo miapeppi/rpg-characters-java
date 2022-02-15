@@ -8,7 +8,9 @@ public class Armor extends Item {
     private ArmorType armorType;
     private PrimaryAttribute armorAttribute;
 
-    /** Enum for every armor type that can be equipped */
+    /**
+     * Enum for every armor type that can be equipped
+     */
     public enum ArmorType {
         Cloth,
         Leather,
@@ -16,19 +18,41 @@ public class Armor extends Item {
         Plate
     }
 
-    /** Default constructor with no parameters */
+    /**
+     * Default constructor
+     */
     public Armor() {
         super();
     }
 
-    /** Overloaded constructor that creates new armor with name, level, armor type and equipping slot */
+    /**
+     * Overloaded constructor that creates new armor with name, level, armor type and equipping slot
+     * @param itemName a name for the armor
+     * @param itemLevel a level for the armor
+     * @param armorType what kind of armor will be created
+     * @param slot a slot where armor will be equipped
+     */
     public Armor(String itemName, int itemLevel, ArmorType armorType, Slot slot) {
         super(itemName, itemLevel);
         setArmorType(armorType);
         setEquippingSlot(slot);
-        setArmorAttribute(new PrimaryAttribute(1, 1,1));
+        setArmorAttribute(new PrimaryAttribute(1, 1,1)); // Setting default values
     }
 
+    /**
+     * Overloaded constructor that creates new armor with name, level, armor type and equipping slot
+     * @param itemName a name for the armor
+     * @param itemLevel a level for the armor
+     * @param armorType what kind of armor will be created
+     * @param slot a slot where armor will be equipped
+     * @param armorAttribute attributes for the armor
+     */
+    public Armor(String itemName, int itemLevel, ArmorType armorType, Slot slot, PrimaryAttribute armorAttribute) {
+        super(itemName, itemLevel);
+        setArmorType(armorType);
+        setEquippingSlot(slot);
+        setArmorAttribute(new PrimaryAttribute(armorAttribute.getStrength(), armorAttribute.getDexterity(), armorAttribute.getIntelligence())); // Setting default values
+    }
 
     @Override
     public boolean checkItem(Character character) {

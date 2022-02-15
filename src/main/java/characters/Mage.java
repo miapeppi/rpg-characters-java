@@ -1,11 +1,11 @@
 package main.java.characters;
 
 import main.java.attributes.PrimaryAttribute;
-import main.java.items.Armor;
-import main.java.items.Item;
-import main.java.items.Weapon;
-import main.java.items.itemexceptions.InvalidArmorException;
-import main.java.items.itemexceptions.InvalidWeaponException;
+import main.java.characters.items.Armor;
+import main.java.characters.items.Item;
+import main.java.characters.items.Weapon;
+import main.java.characters.items.itemexceptions.InvalidArmorException;
+import main.java.characters.items.itemexceptions.InvalidWeaponException;
 
 public class Mage extends Character {
     private PrimaryAttribute levelingUpAttribute;
@@ -47,7 +47,7 @@ public class Mage extends Character {
     }
 
     @Override
-    public void equipItem(Armor armor) throws InvalidArmorException {
+    public boolean equipItem(Armor armor) throws InvalidArmorException {
         if(armor.checkItem(this)) {
             if(getEquipments().get(armor.getEquippingSlot()) == null) { // Check if the equipping slot is empty
                 getEquipments().put(armor.getEquippingSlot(), armor);
@@ -62,16 +62,18 @@ public class Mage extends Character {
             setCharacterDps();
             System.out.println(armor.getItemName() + " is now equipped at " + armor.getEquippingSlot());
             printCharacterStats();
+            return true;
         } else throw new InvalidArmorException("You are not worthy of this armor (too high of a level requirement or wrong armor type)");
     }
 
     @Override
-    public void equipItem(Weapon weapon) throws InvalidWeaponException {
+    public boolean equipItem(Weapon weapon) throws InvalidWeaponException {
         if(weapon.checkItem(this)) {
             getEquipments().put(Item.Slot.Weapon, weapon);
             setCharacterDps();
             System.out.println(weapon.getItemName() + " is now equipped at " + weapon.getEquippingSlot());
             printCharacterStats();
+            return true;
         } else throw new InvalidWeaponException("You are not worthy of this weapon (too high of a level requirement or wrong weapon type)");
     }
 

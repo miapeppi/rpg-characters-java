@@ -1,4 +1,4 @@
-package main.java.items;
+package main.java.characters.items;
 
 import main.java.characters.*;
 import main.java.characters.Character;

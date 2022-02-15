@@ -4,10 +4,9 @@ import java.util.Scanner;
 
 import main.java.attributes.PrimaryAttribute;
 import main.java.characters.Mage;
-import main.java.items.Armor;
-import main.java.items.Item;
-import main.java.items.Weapon;
-import main.java.items.itemexceptions.InvalidArmorException;
+import main.java.characters.items.Armor;
+import main.java.characters.items.Item;
+import main.java.characters.items.Weapon;
 
 public class Program {
     public static void main(String[] args) throws Exception {

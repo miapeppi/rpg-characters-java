@@ -2,12 +2,12 @@ package main.java.characters;
 
 import java.util.HashMap;
 import main.java.attributes.PrimaryAttribute;
-import main.java.items.Armor;
-import main.java.items.Item;
-import main.java.items.Item.Slot;
-import main.java.items.Weapon;
-import main.java.items.itemexceptions.InvalidArmorException;
-import main.java.items.itemexceptions.InvalidWeaponException;
+import main.java.characters.items.Armor;
+import main.java.characters.items.Item;
+import main.java.characters.items.Item.Slot;
+import main.java.characters.items.Weapon;
+import main.java.characters.items.itemexceptions.InvalidArmorException;
+import main.java.characters.items.itemexceptions.InvalidWeaponException;
 
 public abstract class Character {
     private String characterName;
@@ -58,14 +58,14 @@ public abstract class Character {
      * @param armor the armor to equip
      * @throws InvalidArmorException If character tries to equip armour too high level or wrong type
      */
-    public abstract void equipItem(Armor armor) throws InvalidArmorException;
+    public abstract boolean equipItem(Armor armor) throws InvalidArmorException;
 
     /**
      * Method for equipping one piece of weapon. Checks if weapon is correct type and level for the character before equipping.
      * @param weapon the weapon to equip
      * @throws InvalidWeaponException If character tries to equip weapon too high level or wrong type
      */
-    public  abstract void equipItem(Weapon weapon) throws InvalidWeaponException;
+    public  abstract boolean equipItem(Weapon weapon) throws InvalidWeaponException;
 
     /**
      * For printing characters statistic sheet

@@ -1,4 +1,4 @@
-package main.java.items.itemexceptions;
+package main.java.characters.items.itemexceptions;
 
 public class InvalidArmorException extends Exception {
     public InvalidArmorException(String message) {

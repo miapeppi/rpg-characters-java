@@ -13,7 +13,7 @@ public class PrimaryAttribute {
     }
 
     /** Method for adding up primary attributes */
-    public PrimaryAttribute attributeLevelUp(PrimaryAttribute levelingUpAttributes) {
+    public PrimaryAttribute addAttribute(PrimaryAttribute levelingUpAttributes) {
         int newStrength = getStrength() + levelingUpAttributes.getStrength();
         int newDexterity = getDexterity() + levelingUpAttributes.getDexterity();
         int newIntelligence = getIntelligence() + levelingUpAttributes.getIntelligence();
@@ -21,10 +21,17 @@ public class PrimaryAttribute {
     }
 
     /** Method for adding up primary attributes for precise amount of levels */
-    public PrimaryAttribute attributeLevelUp(PrimaryAttribute levelingUpAttributes, int levels) {
+    public PrimaryAttribute addAttribute(PrimaryAttribute levelingUpAttributes, int levels) {
         int newStrength = getStrength() + levelingUpAttributes.getStrength() * levels;
         int newDexterity = getDexterity() + levelingUpAttributes.getDexterity() * levels;
         int newIntelligence = getIntelligence() + levelingUpAttributes.getIntelligence() * levels;
+        return (new PrimaryAttribute(newStrength, newDexterity, newIntelligence));
+    }
+
+    public PrimaryAttribute subtractAttribute(PrimaryAttribute subtracAttributes) {
+        int newStrength = getStrength() - subtracAttributes.getStrength();
+        int newDexterity = getDexterity() - subtracAttributes.getDexterity();
+        int newIntelligence = getIntelligence() - subtracAttributes.getIntelligence();
         return (new PrimaryAttribute(newStrength, newDexterity, newIntelligence));
     }
 

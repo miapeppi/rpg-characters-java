@@ -24,7 +24,7 @@ public class Ranger extends Character{
     }
 
     @Override
-    public void levelUp(int levels) {
+    public void levelUp(int levels) throws Exception {
 
     }
 

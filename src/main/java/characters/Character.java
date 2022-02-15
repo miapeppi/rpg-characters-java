@@ -12,6 +12,8 @@ import main.java.items.itemexceptions.InvalidWeaponException;
 public abstract class Character {
     private String characterName;
     private int characterLevel = 1; // Every character starts at level 1
+    private double characterDps = 1;
+    private double damageAttribute;
     private PrimaryAttribute basePrimaryAttribute;
     private PrimaryAttribute totalPrimaryAttribute;
     private HashMap<Slot, Item> equipments;
@@ -49,7 +51,7 @@ public abstract class Character {
      * Method for leveling up the character precise amount of levels and increasing the primary attributes
      * @param levels an amount of levels character to level up
      */
-    public abstract void levelUp(int levels);
+    public abstract void levelUp(int levels) throws Exception;
 
     /**
      * Method for equipping one piece of armor. Checks if armor is correct type and level for the character before equipping.
@@ -75,7 +77,7 @@ public abstract class Character {
         stats.append("Strength: " + getTotalPrimaryAttribute().getStrength() + "\n");
         stats.append("Dexterity: " + getTotalPrimaryAttribute().getDexterity() + "\n");
         stats.append("Intelligence: " + getTotalPrimaryAttribute().getIntelligence() + "\n");
-        stats.append("DPS: \n");
+        stats.append("DPS: "+ getCharacterDps() + "\n");
         System.out.println(stats);
     }
 
@@ -94,6 +96,27 @@ public abstract class Character {
 
     public void setCharacterLevel(int characterLevel) {
         this.characterLevel = characterLevel;
+    }
+
+    public double getCharacterDps() {
+        return characterDps;
+    }
+
+    public void setCharacterDps() {
+        if(getEquipments().get(Item.Slot.Weapon) == null) {
+            this.characterDps = (1 * (1 + getDamageAttribute()/100));
+        } else {
+            Weapon currentWeapon = (Weapon) getEquipments().get(Item.Slot.Weapon);
+            this.characterDps = (currentWeapon.getWeaponDps() * (1 + getDamageAttribute()/100));
+        }
+    }
+
+    public double getDamageAttribute() {
+        return damageAttribute;
+    }
+
+    public void setDamageAttribute(double damageAttribute) {
+        this.damageAttribute = damageAttribute;
     }
 
     public PrimaryAttribute getBasePrimaryAttribute() {

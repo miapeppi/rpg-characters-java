@@ -49,29 +49,17 @@ public class Weapon extends Item {
         } else {
             if(!getEquippingSlot().equals(Slot.Weapon)) return false; // Check that weapon is equipped in weapon slot
             if(character instanceof Mage) {
-                if(getWeaponType().equals(WeaponType.Staff) || getWeaponType().equals(WeaponType.Wand)) { // If the character type is mage and weapon type is staff or wand, returns true
-                    return true;
-                } else {
-                    return false;
-                }
+                // If the character type is mage and weapon type is staff or wand, returns true
+                return (getWeaponType().equals(WeaponType.Staff) || getWeaponType().equals(WeaponType.Wand));
             } else if(character instanceof Ranger) {
-                if(getWeaponType().equals(WeaponType.Bow)) { // If the character type is ranger and weapon type is bow, returns true
-                    return true;
-                } else {
-                    return false;
-                }
+                // If the character type is ranger and weapon type is bow, returns true
+                return (getWeaponType().equals(WeaponType.Bow));
             } else if(character instanceof Rogue) {
-                if(getWeaponType().equals(WeaponType.Dagger) || getWeaponType().equals(WeaponType.Sword)) { // If the character type is rogue and weapon type is dagger or sword, returns true
-                    return true;
-                } else {
-                    return false;
-                }
+                // If the character type is rogue and weapon type is dagger or sword, returns true
+                return (getWeaponType().equals(WeaponType.Dagger) || getWeaponType().equals(WeaponType.Sword));
             } else if(character instanceof Warrior) {
-                if(getWeaponType().equals(WeaponType.Axe) || getWeaponType().equals(WeaponType.Hammer) || getWeaponType().equals(WeaponType.Sword)) { // If the character type is warrior and weapon type is axe, hammer or sword, returns true
-                    return true;
-                } else {
-                    return false;
-                }
+                // If the character type is warrior and weapon type is axe, hammer or sword, returns true
+                return (getWeaponType().equals(WeaponType.Axe) || getWeaponType().equals(WeaponType.Hammer) || getWeaponType().equals(WeaponType.Sword));
             }
         }
         return false;
@@ -90,7 +78,7 @@ public class Weapon extends Item {
         return weaponDamage;
     }
 
-    public void setWeaponDamage(int damage) {
+    public void setWeaponDamage(int weaponDamage) {
         this.weaponDamage = weaponDamage;
     }
 

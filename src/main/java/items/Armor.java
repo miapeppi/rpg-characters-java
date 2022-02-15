@@ -26,6 +26,7 @@ public class Armor extends Item {
         super(itemName, itemLevel);
         setArmorType(armorType);
         setEquippingSlot(slot);
+        setArmorAttribute(new PrimaryAttribute(1, 1,1));
     }
 
 
@@ -36,29 +37,17 @@ public class Armor extends Item {
         } else {
             if(getEquippingSlot().equals(Slot.Weapon)) return false; // Check that armor is not at weapon slot
             if(character instanceof Mage) {
-                if(getArmorType().equals(ArmorType.Cloth)) { // If the character type is mage and armor type is cloth, returns true
-                    return true;
-                } else {
-                    return false;
-                }
+                // If the character type is mage and armor type is cloth, returns true
+                return getArmorType().equals(ArmorType.Cloth);
             } else if(character instanceof Ranger) {
-                if(getArmorType().equals(ArmorType.Leather) || getArmorType().equals(ArmorType.Mail)) { // If the character type is ranger and armor type is leather or mail, returns true
-                    return true;
-                } else {
-                    return false;
-                }
-            } else if(character instanceof Rogue) {
-                if(getArmorType().equals(ArmorType.Leather) || getArmorType().equals(ArmorType.Mail)) { // If the character type is rogue and armor type is leather or mail, returns true
-                    return true;
-                } else {
-                    return false;
-                }
-            } else if(character instanceof Warrior) {
-                if(getArmorType().equals(ArmorType.Mail) || getArmorType().equals(ArmorType.Plate)) { // If the character type is warrior and armor type is mail or plate, returns true
-                    return true;
-                } else {
-                    return false;
-                }
+                // If the character type is ranger and armor type is leather or mail, returns true
+                return (getArmorType().equals(ArmorType.Leather) || getArmorType().equals(ArmorType.Mail));
+            } else if(character instanceof Rogue)
+                // If the character type is rogue and armor type is leather or mail, returns true
+                return (getArmorType().equals(ArmorType.Leather) || getArmorType().equals(ArmorType.Mail));
+            else if(character instanceof Warrior) {
+                // If the character type is warrior and armor type is mail or plate, returns true
+                return (getArmorType().equals(ArmorType.Mail) || getArmorType().equals(ArmorType.Plate));
             }
         }
         return false;
